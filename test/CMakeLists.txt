@@ -3,19 +3,12 @@ project(example_project)
 
 include(CTest)
 
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/..)
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/../cmake)
 include(BatsTest)
 
-SET(BATS_TESTS "")
-execute_process(COMMAND echo bar OUTPUT_VARIABLE FOO)
+file(GLOB BATS_TEST_FILES_SRC *.sh *.bats)
 
-foreach (bats_test IN LISTS BATS_TESTS)
-    message("_my_list has ${bats_test} but _my_other_list does not!!")
-endforeach()
+message("+++ all are:${BATS_TEST_FILES_SRC}")
 
-ADD_CUSTOM_TARGET(ciao)
-
-bats_discover_tests(
-        ciao
-        TEST_PREFIX "IntegrationTest.${GTEST_PREFIX}"
-        WORKING_DIRECTORY ${GTEST_WORKING_DIRECTORY} DISCOVERY_MODE PRE_TEST)
+# TODO check the case where here, without quotes I get multiple values.
+bats_discover_tests("${BATS_TEST_FILES_SRC}")
