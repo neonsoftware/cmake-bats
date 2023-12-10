@@ -16,7 +16,6 @@ function(bats_discover_tests SCRIPT_FILES)
                 string(SUBSTRING ${TEST_LINE} ${firstQuoteIndex} ${nameLength} TEST_NAME)
                 add_test(NAME ${TEST_NAME}
                         COMMAND ${bats_SOURCE_DIR}/bin/bats ${SCRIPT_FILE} -f "${TEST_NAME}")
-                        #COMMAND ${SCRIPT_FILE} -f "${TEST_NAME}")
             endforeach()
         endif()
     endforeach()
