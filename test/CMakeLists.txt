@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(example_project)
+project(test-cmake-bats)
 
 include(CTest)
 
