@@ -4,7 +4,3 @@
 CMake integration of the BATS shell testing framework
 
 ![](https://geps.dev/progress/50) WORK IN PROGRESS
-
-
-
-
