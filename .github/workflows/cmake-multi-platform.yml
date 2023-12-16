@@ -81,4 +81,4 @@ jobs:
       shell: bash
       run: |
         echo "LOGS WERE:"
-        cat "D:/a/cmake-bats/cmake-bats/build/Testing/Temporary/LastTest.log"
+        cat "D:/a/cmake-bats/cmake-bats/build/Testing/Temporary/LastTest.log" || true
