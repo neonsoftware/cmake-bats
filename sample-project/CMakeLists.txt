@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(sample-project)
 
-add_executable(duplicator main.cpp)
+add_executable(duplicator duplicator.cpp)
 
 include(FetchContent)
 
