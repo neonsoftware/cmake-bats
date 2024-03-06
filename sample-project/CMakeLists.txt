@@ -3,7 +3,6 @@ project(sample-project)
 
 add_executable(duplicator main.cpp)
 
-
 include(FetchContent)
 
 FetchContent_Declare(
