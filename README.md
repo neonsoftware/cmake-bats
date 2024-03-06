@@ -1,9 +1,10 @@
 [![CMake on multiple platforms](https://github.com/neonsoftware/cmake-bats/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/neonsoftware/cmake-bats/actions/workflows/cmake-multi-platform.yml)
 
 # cmake-bats
-CMake integration of the BATS shell testing framework
 
-![](https://geps.dev/progress/50) WORK IN PROGRESS
+Test your C++ application with the shell [BATS testing framework](https://github.com/bats-core/bats-core).
+
+CMake and CTest integration of the BATS shell testing framework, allowing automatic test discovery and execution. 
 
 # usage
 
@@ -30,3 +31,6 @@ include(BatsTest)
 file(GLOB BATS_TEST_FILES_SRC *.sh *.bats)
 bats_discover_tests("${BATS_TEST_FILES_SRC}")
 ```
+
+
+Or see how the C++ application is tested in the [sample project](./sample-project).
