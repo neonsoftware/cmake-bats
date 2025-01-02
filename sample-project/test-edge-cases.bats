@@ -11,3 +11,7 @@
   [ "$status" -eq 0 ]
   [ "$output" -gt "-2147483648" ]
 }
+
+@test "skip-it" {
+  skip
+}
