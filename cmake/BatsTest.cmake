@@ -17,6 +17,11 @@
 # - The alternate test naming syntax (e.g., `function foo() {  # @test`) is not supported and may break this function.
 #
 function(bats_discover_tests SCRIPT_FILES)
+    find_program(BATS bats)
+    if(NOT BATS)
+        message(FATAL_ERROR "Bats (Bash Automated Testing System) not found. Please make sure Bats is installed.")
+    endif()
+
     foreach (SCRIPT_FILE IN LISTS SCRIPT_FILES)
         if(NOT "${SCRIPT_FILE}" STREQUAL "")
             file(STRINGS ${SCRIPT_FILE} TEST_LINES REGEX ".*@test.*")
@@ -28,7 +33,7 @@ function(bats_discover_tests SCRIPT_FILES)
                 string(SUBSTRING ${TEST_LINE} ${firstQuoteIndex} ${nameLength} TEST_NAME)
 
                 add_test(NAME ${TEST_NAME}
-                        COMMAND ${bats_SOURCE_DIR}/bin/bats --formatter tap --filter "^${TEST_NAME}\$" ${SCRIPT_FILE})
+                        COMMAND ${BATS} --formatter tap --filter "^${TEST_NAME}\$" ${SCRIPT_FILE})
                 set_tests_properties("${TEST_NAME}" PROPERTIES
                         PASS_REGULAR_EXPRESSION "1\.\.1[\r\n\t ]+ok 1 ${TEST_NAME}[\r\n\t ]+$"
                         FAIL_REGULAR_EXPRESSION "1\.\.1[\r\n\t ]+not ok 1 ${TEST_NAME}[\r\n\t ]+$"
