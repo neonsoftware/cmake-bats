@@ -1,5 +1,13 @@
 [![CMake on multiple platforms](https://github.com/neonsoftware/cmake-bats/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/neonsoftware/cmake-bats/actions/workflows/cmake-multi-platform.yml)
 
+<div align="center">
+<picture>
+    <img alt="" height="50" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Cmake.svg">
+    <img alt="" height="40" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg"> 
+    <img alt="" height="50" src="https://github.com/bats-core/bats-core/raw/master/docs/source/assets/dark_mode_cube.svg">
+</picture>
+</div>
+
 # cmake-bats
 
 Test your C++ application with the shell [BATS testing framework](https://github.com/bats-core/bats-core).
