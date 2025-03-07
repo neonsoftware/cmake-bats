@@ -32,12 +32,17 @@ function(bats_discover_tests SCRIPT_FILES)
                 MATH(EXPR nameLength "${secondQuoteIndex}-${firstQuoteIndex}")
                 string(SUBSTRING ${TEST_LINE} ${firstQuoteIndex} ${nameLength} TEST_NAME)
 
+                file(STRINGS ${SCRIPT_FILE} ALL_LINES)
+                list(FIND ALL_LINES "${TEST_LINE}" LINE_NUMBER)
+                MATH(EXPR LINE_NUMBER "${LINE_NUMBER}+1")
+
                 add_test(NAME ${TEST_NAME}
                         COMMAND ${BATS} --formatter tap --filter "^${TEST_NAME}\$" ${SCRIPT_FILE})
                 set_tests_properties("${TEST_NAME}" PROPERTIES
                         PASS_REGULAR_EXPRESSION "1\.\.1[\r\n\t ]+ok 1 ${TEST_NAME}[\r\n\t ]+$"
                         FAIL_REGULAR_EXPRESSION "1\.\.1[\r\n\t ]+not ok 1 ${TEST_NAME}[\r\n\t ]+$"
-                        SKIP_REGULAR_EXPRESSION "1\.\.1[\r\n\t ]+ok 1 ${TEST_NAME} # skip[\r\n\t ]+$")
+                        SKIP_REGULAR_EXPRESSION "1\.\.1[\r\n\t ]+ok 1 ${TEST_NAME} # skip[\r\n\t ]+$"
+                        DEF_SOURCE_LINE "${SCRIPT_FILE}:${LINE_NUMBER}")
             endforeach()
         endif()
     endforeach()
