@@ -2,10 +2,9 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/neonsoftware/cmake-bats)
 
 <div align="center">
+<br><br>
 <picture>
-    <img alt="" height="50" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Cmake.svg">
-    <img alt="" height="40" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg"> 
-    <img alt="" height="50" src="https://bats-core.readthedocs.io/en/stable/_static/light_mode_cube.svg">
+    <img alt="" height="80" src="doc/logo.png">
 </picture>
 </div>
 
@@ -42,4 +41,4 @@ bats_discover_tests("${BATS_TEST_FILES_SRC}")
 ```
 
 
-Or see how the C++ application is tested in the [sample project](./sample-project).
+Or see how the C++ application is tested in the [sample project](doc/sample-project).
