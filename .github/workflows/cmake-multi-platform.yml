@@ -30,12 +30,6 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
-          - os: ubuntu-latest
-            c_compiler: gcc
-            cpp_compiler: g++
-          - os: ubuntu-latest
-            c_compiler: clang
-            cpp_compiler: clang++
         exclude:
           - os: windows-latest
             c_compiler: gcc
@@ -46,6 +40,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - uses: actions/checkout@v4
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
@@ -62,7 +60,7 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        -S ${{ github.workspace }}/sample-project
+        -S ${{ github.workspace }}/doc/sample-project
 
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
